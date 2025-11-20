@@ -51,6 +51,20 @@ public interface Realm {
     List<UUID> getTrustedUUIDs();
 
     /**
+     * Gets a list of residents player names.
+     *
+     * @return List of trusted player UUIDs
+     */
+    List<String> getResidents();
+
+    /**
+     * Gets a list of residents player UUIDs.
+     *
+     * @return List of trusted player UUIDs
+     */
+    List<UUID> getResidentsUUIDs();
+
+    /**
      * Gets the main world associated with this realm.
      *
      * @return The realm's main world
@@ -79,6 +93,22 @@ public interface Realm {
      * @return true if the player is trusted, false otherwise
      */
     boolean isTrusted(UUID playerUUID);
+
+    /**
+     * Checks if a player is resident in this realm by name.
+     *
+     * @param playerName The player name to check
+     * @return true if the player is trusted, false otherwise
+     */
+    boolean isResident(String playerName);
+
+    /**
+     * Checks if a player is resident in this realm by UUID.
+     *
+     * @param playerUUID The player UUID to check
+     * @return true if the player is trusted, false otherwise
+     */
+    boolean isResident(UUID playerUUID);
 
     /**
      * Checks if a player is the owner of this realm by name.

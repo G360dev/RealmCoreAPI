@@ -12,7 +12,7 @@ import java.util.UUID;
  * Provides methods to interact with player realms and related operations.
  *
  * @author G360 Development Team
- * @version 1.2.00
+ * @version 1.3.00
  */
 public interface RealmCoreAPI {
     /**
