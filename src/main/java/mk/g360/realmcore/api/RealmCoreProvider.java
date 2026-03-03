@@ -5,7 +5,7 @@ package mk.g360.realmcore.api;
  * This interface serves as the entry point for obtaining the RealmCore API instance.
  *
  * @author G360 Development Team
- * @version 1.3.00
+ * @version 1.4.00
  */
 public interface RealmCoreProvider {
     /**

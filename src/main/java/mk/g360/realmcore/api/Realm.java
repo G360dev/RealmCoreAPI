@@ -12,7 +12,7 @@ import java.util.UUID;
  * A realm is a protected area owned by a player that can have trusted members.
  *
  * @author G360 Development Team
- * @version 1.2.00
+ * @version 1.4.00
  */
 public interface Realm {
     /**
@@ -77,6 +77,13 @@ public interface Realm {
      * @return The realm's nether world, or null if not generated
      */
     World getNetherWorld();
+
+    /**
+     * Gets the number of votes for this realm.
+     *
+     * @return The realm's total votes
+     */
+    int getRealmVotes();
 
     /**
      * Checks if a player is trusted in this realm by name.
