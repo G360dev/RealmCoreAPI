@@ -7,7 +7,7 @@
 
     <groupId>mk.g360.realmcore</groupId>
     <artifactId>RealmCoreAPI</artifactId>
-    <version>1.3.00</version>
+    <version>1.5.00</version>
     <packaging>jar</packaging>
 
     <properties>

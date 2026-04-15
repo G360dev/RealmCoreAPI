@@ -12,7 +12,7 @@ import java.util.UUID;
  * A realm is a protected area owned by a player that can have trusted members.
  *
  * @author G360 Development Team
- * @version 1.4.00
+ * @version 1.5.00
  */
 public interface Realm {
     /**
