@@ -9,7 +9,7 @@ import org.bukkit.event.HandlerList;
  * This event is called after a realm has been successfully created in the system.
  *
  * @author G360 Development Team
- * @version 1.5.00
+ * @version 1.6.00
  */
 public class RealmCreateEvent extends Event {
     private static final HandlerList HANDLERS = new HandlerList();
