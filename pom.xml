@@ -5,9 +5,9 @@
          http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>mk.g360.realmcore</groupId>
+    <groupId>com.github.SergiJuan</groupId>
     <artifactId>RealmCoreAPI</artifactId>
-    <version>1.6.00</version>
+    <version>1.7.00</version>
     <packaging>jar</packaging>
 
     <properties>
@@ -30,6 +30,12 @@
             <version>1.20.1-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -37,10 +43,9 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.11.0</version>
+                <version>3.14.1</version>
                 <configuration>
-                    <source>17</source>
-                    <target>17</target>
+                    <release>17</release>
                 </configuration>
             </plugin>
         </plugins>
