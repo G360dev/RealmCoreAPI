@@ -10,7 +10,7 @@ import org.bukkit.event.HandlerList;
  * This event can be used to track player movement between realms.
  *
  * @author G360 Development Team
- * @version 1.6.00
+ * @version 1.7.00
  */
 public class PlayerJoinRealmEvent extends Event {
     private static final HandlerList HANDLERS = new HandlerList();

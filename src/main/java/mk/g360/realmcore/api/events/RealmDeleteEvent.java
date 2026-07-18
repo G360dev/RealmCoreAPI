@@ -5,30 +5,25 @@ import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
 /**
- * Event triggered when a realm is deleted.
- * This event is called after a realm has been successfully removed from the system.
+ * Fired on the server thread after a realm has been deleted successfully.
  *
  * @author G360 Development Team
- * @version 1.6.00
+ * @version 1.7.00
  */
 public class RealmDeleteEvent extends Event {
     private static final HandlerList HANDLERS = new HandlerList();
     private final Realm realm;
 
     /**
-     * Creates a new RealmDeleteEvent.
+     * Creates a realm-delete event.
      *
-     * @param realm The realm that was deleted
+     * @param realm realm that was deleted
      */
     public RealmDeleteEvent(Realm realm) {
         this.realm = realm;
     }
 
-    /**
-     * Gets the realm that was deleted.
-     *
-     * @return The deleted realm
-     */
+    /** @return the realm that was deleted */
     public Realm getRealm() {
         return realm;
     }
@@ -38,11 +33,7 @@ public class RealmDeleteEvent extends Event {
         return HANDLERS;
     }
 
-    /**
-     * Gets the handler list for this event.
-     *
-     * @return The handler list
-     */
+    /** @return the handler list used by Bukkit to register listeners */
     public static HandlerList getHandlerList() {
         return HANDLERS;
     }

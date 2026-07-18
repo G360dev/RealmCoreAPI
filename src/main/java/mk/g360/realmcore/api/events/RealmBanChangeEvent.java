@@ -11,7 +11,7 @@ import org.jetbrains.annotations.Nullable;
  * This event can be used to track changes to realm ban lists.
  *
  * @author G360 Development Team
- * @version 1.6.00
+ * @version 1.7.00
  */
 public class RealmBanChangeEvent extends Event {
     private static final HandlerList HANDLERS = new HandlerList();

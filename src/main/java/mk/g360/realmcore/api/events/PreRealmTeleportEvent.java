@@ -12,7 +12,7 @@ import org.bukkit.event.HandlerList;
  * This event is cancellable and can be used to prevent realm teleports.
  *
  * @author G360 Development Team
- * @version 1.6.00
+ * @version 1.7.00
  */
 public class PreRealmTeleportEvent extends Event implements Cancellable {
     private static final HandlerList HANDLERS = new HandlerList();

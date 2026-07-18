@@ -9,7 +9,7 @@ package mk.g360.realmcore.api;
  * @param message A human-readable result message
  *
  * @author G360 Development Team
- * @version 1.6.00
+ * @version 1.7.00
  */
 public record RealmActionResult(boolean success, String code, String message) {
 

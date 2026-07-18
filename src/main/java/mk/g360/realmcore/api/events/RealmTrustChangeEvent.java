@@ -11,7 +11,7 @@ import org.jetbrains.annotations.Nullable;
  * This event can be used to track changes to trusted realm access.
  *
  * @author G360 Development Team
- * @version 1.6.00
+ * @version 1.7.00
  */
 public class RealmTrustChangeEvent extends Event {
     private static final HandlerList HANDLERS = new HandlerList();
