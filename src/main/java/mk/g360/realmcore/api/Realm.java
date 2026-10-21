@@ -20,7 +20,7 @@ import java.util.Optional;
  * {@link RealmCoreAPI} for storage-backed reads and realm-bank mutations.
  *
  * @author G360 Development Team
- * @version 1.7.00
+ * @version 1.8.00
  */
 public interface Realm {
     /**
@@ -119,10 +119,14 @@ public interface Realm {
     }
 
     /**
-     * Returns the current border size from the loaded main world.
+     * Returns the configured border size for this realm.
      *
-     * @return The rounded border diameter, or {@code -1} when the world is not
-     *         loaded
+     * <p>RealmCore returns the persisted value, which remains available while
+     * the world is unloaded. Compatibility implementations may return the
+     * loaded world's value or {@code -1} when they cannot read unloaded
+     * metadata.</p>
+     *
+     * @return the configured border diameter, or {@code -1} when unavailable
      */
     default int getBorderSize() {
         World world = getWorld();
@@ -160,6 +164,20 @@ public interface Realm {
         if (isResident(playerName)) return "RESIDENT";
         if (isTrusted(playerName)) return "TRUSTED";
         return "VISITOR";
+    }
+
+    /**
+     * Returns the player's effective role using their stable UUID identity.
+     *
+     * @param playerUUID UUID to inspect; {@code null} is treated as a visitor
+     * @return the typed role for this realm
+     */
+    default RealmRole getRole(UUID playerUUID) {
+        if (playerUUID == null) return RealmRole.VISITOR;
+        if (isOwner(playerUUID)) return RealmRole.OWNER;
+        if (isResident(playerUUID)) return RealmRole.RESIDENT;
+        if (isTrusted(playerUUID)) return RealmRole.TRUSTED;
+        return RealmRole.VISITOR;
     }
 
     /**
