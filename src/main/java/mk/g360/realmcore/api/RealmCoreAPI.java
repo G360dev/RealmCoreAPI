@@ -2,6 +2,7 @@ package mk.g360.realmcore.api;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
@@ -49,6 +50,26 @@ public interface RealmCoreAPI {
      * @return The realm containing the location, or {@code null} if not found
      */
     Realm getRealm(Location location);
+
+    /**
+     * Retrieves the realm that owns a world by its Bukkit world name.
+     *
+     * <p>RealmCore resolves this from persistent realm metadata, so it also
+     * works for an unloaded realm world. Compatibility implementations fall
+     * back to a loaded Bukkit world and return {@code null} when it is not
+     * available.</p>
+     *
+     * @param worldName the main or Nether realm world name
+     * @return the owning realm, or {@code null} when the world is not a realm
+     * @since 1.8.00
+     */
+    default Realm getRealmByWorldName(String worldName) {
+        if (worldName == null || worldName.isBlank()) {
+            return null;
+        }
+        World world = Bukkit.getWorld(worldName);
+        return world == null ? null : getRealm(world.getSpawnLocation());
+    }
 
     /**
      * Checks if a player has any realm associated with their account.
@@ -109,6 +130,17 @@ public interface RealmCoreAPI {
     }
 
     /**
+     * Null-safe counterpart to {@link #getRealmByWorldName(String)}.
+     *
+     * @param worldName main or Nether realm world name; {@code null} is accepted
+     * @return an optional containing the owning realm when found
+     * @since 1.8.00
+     */
+    default Optional<Realm> findRealmByWorldName(String worldName) {
+        return Optional.ofNullable(getRealmByWorldName(worldName));
+    }
+
+    /**
      * Null-safe counterpart to {@link #getRealmByName(String)}.
      *
      * @param realmName owner name to inspect
@@ -160,6 +192,19 @@ public interface RealmCoreAPI {
      */
     default CompletableFuture<Optional<Realm>> findRealmAsync(String realmName) {
         return CompletableFuture.completedFuture(findRealm(realmName));
+    }
+
+    /**
+     * Asynchronously resolves a realm by its main or Nether world name.
+     * RealmCore performs the metadata lookup on its bounded data executor.
+     * Compatibility implementations may return an already-completed future.
+     *
+     * @param worldName main or Nether realm world name
+     * @return a future containing the owning realm, or an empty optional
+     * @since 1.8.00
+     */
+    default CompletableFuture<Optional<Realm>> findRealmByWorldNameAsync(String worldName) {
+        return CompletableFuture.completedFuture(findRealmByWorldName(worldName));
     }
 
     /**

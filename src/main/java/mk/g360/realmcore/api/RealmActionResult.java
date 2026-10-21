@@ -9,7 +9,7 @@ package mk.g360.realmcore.api;
  * @param message A human-readable result message
  *
  * @author G360 Development Team
- * @version 1.7.00
+ * @version 1.8.00
  */
 public record RealmActionResult(boolean success, String code, String message) {
 
@@ -32,6 +32,18 @@ public record RealmActionResult(boolean success, String code, String message) {
      */
     public static RealmActionResult fail(String code, String message) {
         return new RealmActionResult(false, code, message);
+    }
+
+    /**
+     * Tests the machine-readable result code without exposing callers to
+     * {@code null} handling or case differences.
+     *
+     * @param expectedCode result code to compare; {@code null} never matches
+     * @return {@code true} when the result code matches case-insensitively
+     * @since 1.8.00
+     */
+    public boolean hasCode(String expectedCode) {
+        return expectedCode != null && code != null && code.equalsIgnoreCase(expectedCode);
     }
 }
 

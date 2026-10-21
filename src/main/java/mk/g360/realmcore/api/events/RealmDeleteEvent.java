@@ -8,7 +8,7 @@ import org.bukkit.event.HandlerList;
  * Fired on the server thread after a realm has been deleted successfully.
  *
  * @author G360 Development Team
- * @version 1.7.00
+ * @version 1.8.00
  */
 public class RealmDeleteEvent extends Event {
     private static final HandlerList HANDLERS = new HandlerList();

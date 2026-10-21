@@ -16,7 +16,7 @@ import java.util.Objects;
  * will succeed.</p>
  *
  * @author G360 Development Team
- * @version 1.7.00
+ * @version 1.8.00
  */
 public final class PreRealmUnloadEvent extends Event implements Cancellable {
     private static final HandlerList HANDLERS = new HandlerList();

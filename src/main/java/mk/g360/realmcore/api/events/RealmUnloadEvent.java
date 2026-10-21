@@ -10,7 +10,7 @@ import java.util.Objects;
  * Fired on the server thread after an idle realm has been unloaded successfully.
  *
  * @author G360 Development Team
- * @version 1.7.00
+ * @version 1.8.00
  */
 public final class RealmUnloadEvent extends Event {
     private static final HandlerList HANDLERS = new HandlerList();

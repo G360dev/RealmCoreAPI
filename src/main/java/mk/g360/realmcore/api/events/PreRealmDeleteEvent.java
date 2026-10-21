@@ -12,7 +12,7 @@ import org.jetbrains.annotations.Nullable;
  * This event is cancellable and can be used to prevent realm deletion.
  *
  * @author G360 Development Team
- * @version 1.7.00
+ * @version 1.8.00
  */
 public class PreRealmDeleteEvent extends Event implements Cancellable {
     private static final HandlerList HANDLERS = new HandlerList();
